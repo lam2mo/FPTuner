@@ -9,7 +9,6 @@ from multiprocessing import Process, Queue
 import tft_utils 
 import tft_expr
 import tft_error_form 
-import tft_ask_gurobi
 import tft_ask_glpk
 import tft_ask_gelpia 
 import tft_alloc 
@@ -232,7 +231,7 @@ def FirstLevelAllocSolver (optimizers, error_forms = []):
     # ---- solve the alloc. problem by using gurobi ----
     alloc_solver = None 
     if   (optimizers["alloc"] == "gurobi"): 
-        alloc_solver = tft_ask_gurobi.GurobiSolver()
+        sys.exit("ERROR: Gurobi support is disabled")
     elif (optimizers["alloc"] == "glpk"):
         alloc_solver = tft_ask_glpk.GLPKSolver("__mathprog_glpk.mp")
     else:

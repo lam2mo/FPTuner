@@ -9,7 +9,6 @@ import tft_error_form
 import tft_solver 
 import tft_utils 
 import tft_ask_gelpia 
-import tft_ask_gurobi 
 import tft_sol_exprs 
 import tft_get_first_derivations 
 import tft_dat_def 
@@ -63,7 +62,6 @@ def LoadConfig (fname_config):
     global OPTIMIZERS
 
     # default settings 
-    tft_ask_gurobi.VERBOSE = False 
     tft_ask_markian.VERBOSE = False 
     tft_solver.VERBOSE = False 
     tft_parser.VERBOSE = False 
@@ -92,8 +90,6 @@ def LoadConfig (fname_config):
             assert(val in tft_solver.ALL_OPTIMIZERS) 
             OPTIMIZERS["alloc"] = val 
 
-        elif (opt == "VERBOSE_GUROBI"): 
-            tft_ask_gurobi.VERBOSE = tft_utils.String2Bool(val) 
         elif (opt == "VERBOSE_SAMPLER"):
             tft_ask_sampler.VERBOSE = tft_utils.String2Bool(val) 
         elif (opt == "VERBOSE_SAMPLERS"):
